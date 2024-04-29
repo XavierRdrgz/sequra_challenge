@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: stg_spacex__launches
+    columns:
+      - name: launch_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('customers')
+              field: id
+
+  - name: stg_spacex__launchcores
+    columns:
+      - name: core_id
+        tests:
+          - not_null
+      - name: launch_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_spacex_launches')
+              field: launch_id
+
+  - name: stg_spacex__launchcrews
+    columns:
+      - name: crew_id
+        tests:
+          - not_null
+      - name: launch_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_spacex_launches')
+              field: launch_id
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('customers')
+              field: id

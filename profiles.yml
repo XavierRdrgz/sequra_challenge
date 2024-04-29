@@ -1,0 +1,12 @@
+sequra:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: dev
+      password: CHANGE_IN_PROD
+      port: 5432
+      dbname: sequra
+      schema: spacex
+  

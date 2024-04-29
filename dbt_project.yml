@@ -1,0 +1,24 @@
+name: 'sequra'
+
+config-version: 2
+version: '0.1'
+
+profile: 'sequra'
+
+model-paths: ["./dbt/models"]
+seed-paths: ["./dbt/seeds"]
+test-paths: ["./dbt/tests"]
+analysis-paths: ["./dbt/analysis"]
+macro-paths: ["./dbt/macros"]
+
+
+require-dbt-version: [">=1.0.0", "<2.0.0"]
+
+models:
+  sequra:
+    materialized: view
+    staging:
+      materialized: view
+    marts:
+      materialized: table
+        
